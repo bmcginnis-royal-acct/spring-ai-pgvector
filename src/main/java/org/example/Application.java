@@ -20,14 +20,6 @@ import java.util.Objects;
 @SpringBootApplication
 public class Application {
 
-    // This is the file that contains the game rules
-    // TODO: This is not a scalable way to do this. Loading a vector store
-    // should be an independent, stand-alone process done before this app runs.
-    //
-    @Value("classpath:/clubber-rules.txt")
-    private Resource documentResource;
-
-
     public Application() {}
 
     public static void main(String[] args) {
@@ -38,53 +30,5 @@ public class Application {
         System.out.print("Hello World");
     }
 
-
-//    // Load game rules from resource file.
-//    @Bean
-//    ApplicationRunner applicationRunner(ApplicationContext cxt) {
-//
-//
-////        ApplicationRunner applicationRunner(VectorStore vectorStore) {
-//
-//        return args -> {
-//            System.out.println("Loading game rules from resource file into pg_vector");
-//
-//            VectorStore vs = applicationContext.getBean(VectorStore.class);
-//
-//            Objects.requireNonNull(documentResource);
-//            if (!documentResource.exists()) {
-//                throw new RuntimeException("Game rules file not found: " + documentResource.getFilename());
-//            }
-//
-//            TikaDocumentReader documentReader = new TikaDocumentReader(documentResource);
-//            TextSplitter textSplitter = new TokenTextSplitter();
-//
-//            System.out.println("\n\n---\nReading game rules document: " + documentReader.get());
-//
-////            vectorStore.accept(
-////                    textSplitter.apply(
-////                            documentReader.get()));
-//        };
-//    }
-
-    // Load game rules from resource file.
-//    @Bean
-//    ApplicationRunner pgVectorLoad(VectorStore vectorStore) {
-//        return args -> {
-//            Objects.requireNonNull(documentResource);
-//            if (!documentResource.exists()) {
-//                throw new RuntimeException("Game rules file not found: " + documentResource.getFilename());
-//            }
-//
-//            TikaDocumentReader documentReader = new TikaDocumentReader(documentResource);
-//            TextSplitter textSplitter = new TokenTextSplitter();
-//
-//            System.out.println("\n\n---\nReading game rules document: " + documentReader.get());
-//
-//            vectorStore.accept(
-//                    textSplitter.apply(
-//                            documentReader.get()));
-//        };
-//    }
 
 }
