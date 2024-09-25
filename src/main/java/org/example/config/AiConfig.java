@@ -20,11 +20,4 @@ public class AiConfig {
         return chatClientBuilder.build();
     }
 
-// Use if custom vector store is being used. Otherwise, spring ai generates this automatically
-// does this for table vector_store.
-//    @Bean
-//    public VectorStore vectorStore(JdbcTemplate jdbcTemplate, EmbeddingModel embeddingModel) {
-//        return new PgVectorStore(jdbcTemplate, embeddingModel);
-//    }
-
 }
